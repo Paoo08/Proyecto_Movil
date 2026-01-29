@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,105 +12,128 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <Spinner
-            android:id="@+id/hotel_spinner"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        <EditText
-            android:id="@+id/check_in_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Fecha de ida"
-            android:focusable="false"
-            android:layout_marginBottom="16dp" />
+            <Spinner
+                android:id="@+id/hotel_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/check_out_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Fecha de regreso"
-            android:focusable="false"
-            android:layout_marginBottom="16dp" />
+            <EditText
+                android:id="@+id/check_in_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fecha de ida"
+                android:focusable="false"
+                android:layout_marginBottom="16dp" />
 
-        <Spinner
-            android:id="@+id/room_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            <EditText
+                android:id="@+id/check_out_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fecha de regreso"
+                android:focusable="false"
+                android:layout_marginBottom="16dp" />
 
-        <Spinner
-            android:id="@+id/person_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            <Spinner
+                android:id="@+id/room_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
 
-        <Spinner
-            android:id="@+id/bed_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            <Spinner
+                android:id="@+id/person_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
 
-        <ImageView
-            android:id="@+id/hotel_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="16dp"
-            android:scaleType="centerCrop" />
+            <Spinner
+                android:id="@+id/bed_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
 
-        <TextView
-            android:id="@+id/hotel_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Información del hotel"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_marginBottom="16dp" />
+            <ImageView
+                android:id="@+id/hotel_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop" />
 
-        <Button
-            android:id="@+id/reserve_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#254D32"
-            android:text="Reservar" />
-        <Button
-            android:id="@+id/viewReservationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ver Reservación"
-            app:layout_constraintTop_toBottomOf="@+id/reserveButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            <TextView
+                android:id="@+id/hotel_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Información del hotel"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_marginBottom="16dp" />
 
-        <Button
-            android:id="@+id/modifyReservationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modificar Reservación"
-            app:layout_constraintTop_toBottomOf="@+id/viewReservationButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            <Button
+                android:id="@+id/reserve_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:backgroundTint="#254D32"
+                android:text="Reservar" />
 
-        <Button
-            android:id="@+id/deleteReservationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eliminar Reservación"
-            app:layout_constraintTop_toBottomOf="@+id/modifyReservationButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            <Button
+                android:id="@+id/viewReservationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:backgroundTint="#254D32"
+                android:text="Ver Reservación" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/modifyReservationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#254D32"
+                android:text="Modificar Reservación" />
+
+            <Button
+                android:id="@+id/deleteReservationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#254D32"
+                android:text="Eliminar Reservación" />
+
+            <!-- Botones solo para Administradores -->
+            <Button
+                android:id="@+id/addHotelButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Añadir Hotel"
+                android:layout_marginTop="0dp"
+                android:backgroundTint="#254D32"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/editHotelButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Editar Hotel"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#254D32"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/deleteHotelButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eliminar Hotel"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#254D32"
+                android:visibility="gone" />
+
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

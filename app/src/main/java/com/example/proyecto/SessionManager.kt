@@ -4,31 +4,41 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class SessionManager(context: Context) {
-    private val preferences: SharedPreferences = context.getSharedPreferences("USER_SESSION", Context.MODE_PRIVATE)
+    private val prefs: SharedPreferences = context.getSharedPreferences("user_session", Context.MODE_PRIVATE)
+
+    companion object {
+        const val IS_ADMIN = "is_admin"
+        const val RESERVATION = "reservation"
+    }
 
     fun saveReservation(reservation: Reservation) {
-        val editor = preferences.edit()
-        editor.putString("hotel", reservation.hotel)
-        editor.putString("checkInDate", reservation.checkInDate)
-        editor.putString("checkOutDate", reservation.checkOutDate)
-        editor.putString("room", reservation.room)
-        editor.putString("persons", reservation.persons)
-        editor.putString("beds", reservation.beds)
+        val editor = prefs.edit()
+        editor.putString(RESERVATION, reservation.toJson())
         editor.apply()
     }
 
     fun getReservation(): Reservation? {
-        val hotel = preferences.getString("hotel", null) ?: return null
-        val checkInDate = preferences.getString("checkInDate", null) ?: return null
-        val checkOutDate = preferences.getString("checkOutDate", null) ?: return null
-        val room = preferences.getString("room", null) ?: return null
-        val persons = preferences.getString("persons", null) ?: return null
-        val beds = preferences.getString("beds", null) ?: return null
-
-        return Reservation(hotel, checkInDate, checkOutDate, room, persons, beds)
+        val reservationJson = prefs.getString(RESERVATION, null)
+        return if (reservationJson != null) {
+            Reservation.fromJson(reservationJson)
+        } else {
+            null
+        }
     }
 
     fun clearReservation() {
-        preferences.edit().clear().apply()
+        val editor = prefs.edit()
+        editor.remove(RESERVATION)
+        editor.apply()
+    }
+
+    fun setAdmin(isAdmin: Boolean) {
+        val editor = prefs.edit()
+        editor.putBoolean(IS_ADMIN, isAdmin)
+        editor.apply()
+    }
+
+    fun isAdmin(): Boolean {
+        return prefs.getBoolean(IS_ADMIN, false)
     }
 }

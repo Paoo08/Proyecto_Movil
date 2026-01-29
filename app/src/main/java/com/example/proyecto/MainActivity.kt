@@ -3,6 +3,8 @@ package com.example.proyecto
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Button
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -34,6 +36,17 @@ import java.util.TimerTask
             appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
             setupActionBarWithNavController(navController, appBarConfiguration)
             navView.setupWithNavController(navController)
+
+            val logoutButton: Button = navView.findViewById(R.id.logoutButton)
+            logoutButton.setOnClickListener {
+                // Implementar la lógica de cerrar sesión aquí
+                Toast.makeText(this, "Cerrando sesión...", Toast.LENGTH_SHORT).show()
+
+                // Ejemplo de redirección a la pantalla de inicio de sesión
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
         }
 
         override fun onCreateOptionsMenu(menu: Menu): Boolean {
